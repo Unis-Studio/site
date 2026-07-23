@@ -1,0 +1,28 @@
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #111827;
+    --background-color: #0f172a;
+    --background-color-low: #1e293b;
+    --background-color-high: #1e293b;
+    --surface-color: #141f30;
+
+    --text-color: #f8fafc;
+    --text-secondary: #cbd5e1;
+
+    --button-color: #2563eb;
+    --button-hover: #1d4ed8;
+
+    --background-color1: #1e293b;
+    --background-color2: #0f172a;
+}
+body {
+    display: block;
+    margin: 8px;
+    background: linear-gradient(135deg, var(--background-color1), var(--background-color2));
+    font-family: Arial, sans-serif;
+}
+#title-Index {
+    font-size: 50px;
+    text-align: center;
+    color: var(--text-color);
+}
