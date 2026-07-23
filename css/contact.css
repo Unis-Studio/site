@@ -1,0 +1,15 @@
+main {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    align-items: center;
+}
+h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+}
+h2 {
+    font-size: clamp();
+}
+h3 {
+    font-size: clamp();
+}
