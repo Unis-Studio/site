@@ -1,11 +1,12 @@
 :root {
     --pad-separator: 1px solid var(--primary-color);
 }
+/* Generale */
 .pad0 {
-    margin: 100px auto;
+    margin: clamp(50px, 8vw, 100px) auto;
 }
 .pad1 {
-    padding: 1em;
+    padding: clamp(1rem, 3vw, 2rem) auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,12 +14,18 @@
     border-top: 1px solid var(--primary-color);
     border-bottom: 0.2px solid var(--primary-color);
 }
+
 #Title-Pad {
-    font-size: 50px;
+    font-size: clamp(2rem, 4vw, 2.5rem);
     font-weight: bold;
     font-style: italic;
     color: var(--text-color);
 
+}
+#title-Index {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    text-align: center;
+    color: var(--text-color);
 }
 
 /* Domaine */
@@ -29,7 +36,7 @@
     gap: 1em;
 }
 #Title-Domaine {
-    font-size: 30px;
+    font-size: clamp(1.7rem, 3vw, 2rem);
     font-weight: bold;
     font-style: italic;
     color: var(--text-color);
@@ -38,9 +45,9 @@
 .domaine-container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: center;
     justify-content: center;
-    gap: 1em;
+    margin-bottom: min(5%, 40px);
+    gap: 1.5rem;
 }
 .domaine {
     display: flex;
@@ -48,26 +55,29 @@
     align-items: center;
     justify-content: center;
     gap: 1em;
-    padding: 1em 5em; 
+    padding: 2rem;
     border: 1px solid var(--primary-color);
     background-color: rgba(59, 130, 246, 0.2);
     color: var(--text-color);
     border-radius: 5px;
+    flex:1 1 280px;
+    max-width: 320px;
+    min-width:250px;
 }
 .domaine:hover {
     background-color: rgba(59, 130, 246, 0.4);
     box-shadow: 0 0 10px var(--primary-color);
-    
-    scale: 1.01;
+    transition:.25s;
+    transform: scale(1.02);
 }
 
 /* Partners */
 .partners {
     margin: 10px auto;
     border: 1px solid var(--primary-color);
-    width: 80%;
+    width: min(1200px,95%);
     display: flex;
-    overflow-x: auto;
+    overflow: hidden;
     gap: 1em;
 
 }
@@ -83,8 +93,7 @@
 }
 .partner {
     display: flex;
-    width: 500px;
-    height: 250px;
+    flex:0 0 500px;
     background-color: var(--primary-color);
     color: var(--text-color);
     justify-content: left;
@@ -92,23 +101,88 @@
     gap: 1em;
     border-radius: 5px;
     align-content: center;
+    min-height:250px;
 }
 .partner:hover {
     box-shadow: 0 0 10px var(--primary-color);
-    scale: 1.01;
+    transition:.25s;
+    transform:scale(1.02);
 }
-img {
+.partner img {
     width: 50%;
     height: 100%;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 @keyframes scroll {
     from {
-        translate : 0%;
+        transform:translateX(0%);
     }
     to {
-        translate : -100%;
+        transform:translateX(-100%)
     }
 }
 
+@media (max-width: 900px) {
+
+    .partner {
+        flex: 0 0 380px;
+        height: 200px;
+    }
+
+    .domaine {
+        flex: 1 1 220px;
+    }
+
+}
+@media (max-width: 768px) {
+
+    .domaine-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .domaine {
+        width: 100%;
+        max-width: 450px;
+        min-height: auto;
+    }
+
+    .partner {
+        flex: 0 0 95%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .partner img {
+        width: 100%;
+        height: 220px;
+    }
+    
+
+}
+
+@media (max-width: 480px) {
+
+    .pad1 {
+        padding: 1rem;
+    }
+
+    #Title-Pad {
+        font-size: 1.8rem;
+    }
+
+    #title-Index {
+        font-size: 2.2rem;
+    }
+
+    .domaine {
+        padding: 1.5rem;
+    }
+
+    .partner img {
+        height: 180px;
+    }
+
+}

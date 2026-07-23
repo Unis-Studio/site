@@ -15,14 +15,20 @@
     --background-color1: #1e293b;
     --background-color2: #0f172a;
 }
+html,
 body {
-    display: block;
-    margin: 8px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(135deg, var(--background-color1), var(--background-color2));
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
-#title-Index {
-    font-size: 50px;
-    text-align: center;
-    color: var(--text-color);
+main {
+    flex: 1;
 }
+
