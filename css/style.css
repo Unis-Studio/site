@@ -12,8 +12,9 @@
     --button-color: #2563eb;
     --button-hover: #1d4ed8;
 
-    --background-color1: #1e293b;
+    --background-color1: #1a2538;
     --background-color2: #0f172a;
+    --background-color3: #1c2741;
 }
 html,
 body {
@@ -24,11 +25,26 @@ body {
 body {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, var(--background-color1), var(--background-color2));
+    background: linear-gradient(135deg, var(--background-color1) 0%, var(--background-color3) 50%, var(--background-color2) 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 main {
     flex: 1;
+}
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 

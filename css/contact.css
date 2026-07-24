@@ -3,13 +3,29 @@ main {
     flex-direction: column;
     color: var(--text-color);
     align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
 }
 h1 {
     font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 h2 {
     font-size: clamp();
 }
+.contact-perso {
+    align-items:start;
+    border: 2px solid white;
+    padding: 15px 20px;
+
+}
 h3 {
     font-size: clamp();
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.contact-info a {
+    color: rgb(122, 178, 252);
 }
