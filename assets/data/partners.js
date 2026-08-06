@@ -6,7 +6,7 @@ const partners = [
         description: "Partis d'un simple rêve portés par la passion. Viens écrire l'histoire à nos côtés.",
         depuis: "2026",
         lien: "#",
-        relation: "partenaire"
+        relation: "Partenaire"
     },
     {
         nom: "Voxtek",
