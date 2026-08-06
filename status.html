@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unis Studio - Status</title>
+
+<style>
+*{box-sizing:border-box;font-family:Inter,Arial,sans-serif}
+body{margin:0;background:#0f1117;color:white;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.container{width:90%;max-width:800px}
+.header{text-align:center;margin-bottom:30px}
+.header h1{font-size:32px}
+.header p{color:#9ca3af}
+
+.card{
+    background:#181b23;
+    border:1px solid #252a35;
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.service{display:flex;align-items:center;gap:15px}
+.icon{font-size:25px}
+.name{font-size:18px;font-weight:bold}
+.status{color:#9ca3af;font-size:14px}
+
+.badge{
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.green{background:#16a34a}
+.red{background:#dc2626}
+.yellow{background:#ca8a04}
+
+.footer{text-align:center;margin-top:25px;color:#6b7280}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🟢 Unis Studio Status</h1>
+        <p>État des services et infrastructures</p>
+    </div>
+
+    <div id="services">Chargement...</div>
+
+    <div class="footer">Unis Studio • Status Page</div>
+</div>
+
+<script>
+const API="http://192.168.1.149:3100/status";
+const KEY="unis-status-secret";
+
+async function loadStatus(){
+    try{
+        const response=await fetch(API,{
+            headers:{
+                "x-api-key":KEY
+            }
+        });
+
+        const data=await response.json();
+        let html="";
+
+        data.forEach(service=>{
+            let badge="";
+            let color="";
+
+            if(service.status==="online"){
+                badge="OPÉRATIONNEL";
+                color="green";
+            }else if(service.status==="starting"){
+                badge="DÉMARRAGE";
+                color="yellow";
+            }else{
+                badge="DOWN";
+                color="red";
+            }
+
+            html+=`
+            <div class="card">
+                <div class="service">
+                    <div class="icon">${service.icon}</div>
+                    <div>
+                        <div class="name">${service.name}</div>
+                        <div class="status">Dernière vérification : maintenant</div>
+                    </div>
+                </div>
+                <div class="badge ${color}">${badge}</div>
+            </div>`;
+        });
+
+        document.getElementById("services").innerHTML=html;
+
+    }catch(error){
+        document.getElementById("services").innerHTML=
+        "<p>Erreur de connexion au serveur status</p>";
+    }
+}
+
+loadStatus();
+setInterval(loadStatus,30000);
+</script>
+
+</body>
+</html>

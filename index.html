@@ -16,11 +16,15 @@
     <div id="header"></div>
     <main>
         
-    <div class="pad0">
+    <section class="pad0">
         <div class="banner">
             <p id="Title-Index">Bienvenue sur Unis Studio</p>
+            <div class="pad0-button">
+                <button class="pad0-button-1">Button</button>
+                <button class="pad0-button-2">Button</button>
+            </div>
         </div>
-    </div>
+    </section>
     <div class="pad1" id="Domaine-Pad">
         <h2 id="Title-Domaine">Nos domaines d'expériences</h2>
         <div class="domaine-container">
@@ -67,61 +71,26 @@
         <div class="projet-container" id="projet-container">
         </div>
     </div>
-    <div class="pad1" id="Partners-Pad">
-        <p id="Title-Pad">Ils nous font confiance</p>
-        <div class="partners">
-            <div class="partners-container">
-                <div class="partner">
-                    <img src="assets/images/logo/madeicecream.webp" alt="Make Ice Cream Logo">
-                    <div class="partner-text">
-                        <h4>Make Ice Cream</h4>
-                        <p>Partis d'un simple rêve portés par la passion. Viens écrire l'histoire à nos côtés.</p>
-                    </div>
-                </div>
-
-                <div class="partner">
-                    <img src="assets/images/logo/voxtek.gif" alt="Voxtek Logo">
-                    <div class="partner-text">
-                        <h4>Voxtek</h4>
-                    </div>
-                </div>
-                <div class="partner">
-                    <img src="assets/images/logo/kyubii.gif" alt="Kyubii Logo">
-                    <div class="partner-text">
-                        <h4>Kyubii</h4>
-                    </div>
-                </div>
-            </div>
-            <div aria-hidden="true" class="partners-container">
-                <div class="partner">
-                    <img src="assets/images/logo/madeicecream.webp" alt="Make Ice Cream Logo">
-                    <div class="partner-text">
-                        <h4>Make Ice Cream</h4>
-                        <p>Partis d'un simple rêve portés par la passion. Viens écrire l'histoire à nos côtés.</p>
-                    </div>
-                </div>
-                <div class="partner">
-                    <img src="assets/images/logo/voxtek.gif" alt="Voxtek Logo">
-                    <div class="partner-text">
-                        <h4>Voxtek</h4>
-                    </div>
-                </div>
-                <div class="partner">
-                    <img src="assets/images/logo/kyubii.gif" alt="Kyubii Logo">
-                    <div class="partner-text">
-                        <h4>Kyubii</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="Partners-Pad" class="pad1">
+    <h2 id="Title-Pad">Ils nous font confiance</h2>
+    <div class="partners">
+        <div class="partners-container">
     </div>
+    </section>
     
     
     </main>
     <div id="footer"></div>
     <script src="assets/data/projets.js"></script>
+    <script src="assets/data/partners.js"></script>
     <script src="js/index.js"></script>
     <script src="js/layout.js"></script>
+    <script>
+        (() => {
+        const track = document.querySelector('.partners-container');
+        if(track) track.innerHTML += track.innerHTML;
+        })();
+    </script>
 </body>
 
 
